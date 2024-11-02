@@ -10,7 +10,27 @@
 
 下载并解压后，将数据集设置为以下目录结构：
 
-/home/yuwenjing/data/肾母细胞瘤CT数据_划分/ ├── train/ │ ├── NoMetastasis/ │ │ ├── 1_image.nrrd │ │ ├── 1_label.nrrd │ │ └── ... │ ├── Metastasis/ │ │ ├── 2_image.nrrd │ │ ├── 2_label.nrrd │ │ └── ... └── test/ ├── NoMetastasis/ │ ├── 3_image.nrrd │ ├── 3_label.nrrd │ └── ... └── Metastasis/ ├── 4_image.nrrd ├── 4_label.nrrd └── ...
+```plaintext
+/home/yuwenjing/data/肾母细胞瘤CT数据_划分/
+├── train/
+│   ├── NoMetastasis/
+│   │   ├── 1_image.nrrd
+│   │   ├── 1_label.nrrd
+│   │   └── ...
+│   ├── Metastasis/
+│   │   ├── 2_image.nrrd
+│   │   ├── 2_label.nrrd
+│   │   └── ...
+└── test/
+    ├── NoMetastasis/
+    │   ├── 3_image.nrrd
+    │   ├── 3_label.nrrd
+    │   └── ...
+    └── Metastasis/
+        ├── 4_image.nrrd
+        ├── 4_label.nrrd
+        └── ...
+
 
 
 > **注意**：在上述路径中，以 `_label` 结尾的文件为肿瘤 mask。代码当前未使用这些文件，因此需要将其删除。
