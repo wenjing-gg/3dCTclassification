@@ -1,12 +1,31 @@
 ## 代码使用简介
+本代码旨在通过预训练的vit来对CT图像进行肾母细胞瘤的转移预测，主要将第一层embedding改为三维卷积。
+1. 下载好数据集，代码中默认使用的是转移分类数据集，下载地址: https://pan.baidu.com/s/1Z1vIXOuhgl8qLRioYPZkKg?pwd=b0pw
+   文件路径格式应设置为(其中以label结尾的文件为肿瘤mask，在本代码下尚未使用，需删除)
+   /home/yuwenjing/data/肾母细胞瘤CT数据_划分/
+    ├── train/
+    │   ├── NoMetastasis/
+    │   │   ├── 1_image.nrrd
+    │   │   ├── 1_label.nrrd
+    │   │   └── ...
+    │   ├── Metastasis/
+    │   │   ├── 2_image.nrrd
+    │   │   ├── 2_label.nrrd
+    │   │   └── ...
+    └── test/
+        ├── NoMetastasis/
+        │   ├── 3_image.nrrd
+        │   ├── 3_label.nrrd
+        │   └── ...
+        └── Metastasis/
+            ├── 4_image.nrrd
+            ├── 4_label.nrrd
+            └── ...
 
-1. 下载好数据集，代码中默认使用的是花分类数据集，下载地址: [https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz](https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz),
-如果下载不了的话可以通过百度云链接下载: https://pan.baidu.com/s/1QLCTA4sXnQAw_yvxPj9szg 提取码:58p0
-2. 在`train.py`脚本中将`--data-path`设置成解压后的`flower_photos`文件夹绝对路径
-3. 下载预训练权重，在`vit_model.py`文件中每个模型都有提供预训练权重的下载地址，根据自己使用的模型下载对应预训练权重
-4. 在`train.py`脚本中将`--weights`参数设成下载好的预训练权重路径
-5. 设置好数据集的路径`--data-path`以及预训练权重的路径`--weights`就能使用`train.py`脚本开始训练了(训练过程中会自动生成`class_indices.json`文件)
-6. 在`predict.py`脚本中导入和训练脚本中同样的模型，并将`model_weight_path`设置成训练好的模型权重路径(默认保存在weights文件夹下)
-7. 在`predict.py`脚本中将`img_path`设置成你自己需要预测的图片绝对路径
-8. 设置好权重路径`model_weight_path`和预测的图片路径`img_path`就能使用`predict.py`脚本进行预测了
-9. 如果要使用自己的数据集，请按照花分类数据集的文件结构进行摆放(即一个类别对应一个文件夹)，并且将训练以及预测脚本中的`num_classes`设置成你自己数据的类别数
+3. 在`train.py`脚本中将`--data-path`设置成解压后的`flower_photos`文件夹绝对路径
+4. 下载预训练权重，在`vit_model.py`文件中每个模型都有提供预训练权重的下载地址，根据自己使用的模型下载对应预训练权重，仅使用了前几层
+5. 在`train.py`脚本中将`--weights`参数设成下载好的预训练权重路径
+6. 设置好数据集的路径`--data-path`以及预训练权重的路径`--weights`就能使用`train.py`脚本开始训练了(训练过程中会自动生成`class_indices.json`文件)
+7. `predict.py`尚不可用
+
+
