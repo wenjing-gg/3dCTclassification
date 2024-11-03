@@ -6,7 +6,7 @@
 
 ### 1. 下载数据集
 
-代码默认使用的是肾母细胞瘤转移分类数据集。下载地址：[百度网盘](https://pan.baidu.com/s/1Z1vIXOuhgl8qLRioYPZkKg?pwd=b0pw)
+代码默认使用的是肾母细胞瘤转移分类数据集。下载地址：[百度网盘](https://pan.baidu.com/s/1Z1vIXOuhgl8qLRioYPZkKg?)
 
 下载并解压后，将数据集设置为以下目录结构：
 
